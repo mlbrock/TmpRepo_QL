@@ -1,0 +1,63 @@
+Below are the changes for the current release.
+See the CHANGES file for changes in older releases.
+See the RELEASENOTES file for a summary of changes in each release.
+
+Version 3.0.0 (in progress)
+============================
+
+2013-11-09: wsfulton
+            [C#] Apply patch #79 from Brant Kyser
+              - Remove using directives from the generated C# code and fully qualify the use of all .NET
+                framework types in order to minimize potential name collisions from input files defining
+                types, namespace, etc with the same name as .NET framework members.
+              - Globally qualify the use of .NET framework types in the System namespace
+              - Remove .NET 1.1 support, .NET 2 is the minimum for the C# module
+
+            This is a potential backwards compatibility break if code has been added relying on these using
+            statements that used to be generated:
+
+              using System;
+              using System.Runtime.InteropServices;
+
+            The quick fix to add these back in is to add the -DSWIG2_CSHARP command line option when
+            executing SWIG. See CSharp.html documentation for more info.
+
+            *** POTENTIAL INCOMPATIBILITY  ***
+
+2013-11-05: wsfulton
+            [Java] Fix some corner cases for the $packagepath/$javaclassname special variable substitution.
+
+2013-11-05: wsfulton
+            [Java] Apply patch #91 from Marvin Greenberg - Add director:except feature for improved
+            exception handling in director methods for Java.
+
+2013-10-17: wsfulton
+            [R] Fix SF #1340 - Visual Studio compile error in C++ wrappers due to #include <exception>
+            within extern "C" block.
+
+2013-10-17: wsfulton
+            [Python] Fix SF #1345 - Missing #include <stddef.h> for offsetof when using -builtin.
+
+2013-10-15: vadz
+            Allow using \l, \L, \u, \U and \E in the substitution part of %(regex:/pattern/subst/)
+            inside %rename to change the case of the text being replaced.
+
+2013-10-12: wsfulton
+            [Lua] Apply #92 - missing return statements for SWIG_Lua_add_namespace_details()
+            and SWIG_Lua_namespace_register().
+
+2013-10-12: wsfulton
+            [CFFI] Apply #96 - superclass not lispify
+
+2013-10-12: wsfulton
+            Merge in C++11 support from the gsoc2009-matevz branch where Matevz Jekovec first
+            started the C++0x additions. Documentation of the C++11 features supported is in a
+            new Chapter of the documentation, "SWIG and C++11" in Doc/Manual/CPlusPlus11.html.
+
+2013-10-04: wsfulton
+            Fix %naturalvar not having any affect on templated classes instantiated with an
+            enum as the template parameter type. Problem reported by Vadim Zeitlin.
+
+2013-09-20: wsfulton
+            [Java] Fix a memory leak for the java char **STRING_ARRAY typemaps.
+

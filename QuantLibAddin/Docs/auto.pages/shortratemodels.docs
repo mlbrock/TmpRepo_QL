@@ -1,0 +1,399 @@
+
+/*  
+ Copyright (C) 2006 Ferdinando Ametrano
+ Copyright (C) 2005 Aurelien Chanudet
+ Copyright (C) 2005 Eric Ehlers
+ Copyright (C) 2006 Chiara Fornarola
+ Copyright (C) 2015 Paolo Mazzocchi
+ 
+ This file is part of QuantLib, a free-software/open-source library
+ for financial quantitative analysts and developers - http://quantlib.org/
+
+ QuantLib is free software: you can redistribute it and/or modify it
+ under the terms of the QuantLib license.  You should have received a
+ copy of the license along with this program; if not, please email
+ <quantlib-dev@lists.sf.net>. The license is also available online at
+ <http://quantlib.org/license.shtml>.
+
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+
+// This file was generated automatically by gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      gensrc/gensrc/stubs/stub.doxygen.file
+
+/*! \page func_shortratemodels Short Rate Models
+\section overview Overview
+functions to construct and use short-rate model objects.
+\section functionlist Function List
+\ref qlFuturesConvexityBias ()\n
+\ref qlHullWhite ()\n
+\ref qlModelG2 ()\n
+\ref qlModelG2A ()\n
+\ref qlModelG2B ()\n
+\ref qlModelG2eta ()\n
+\ref qlModelG2rho ()\n
+\ref qlModelG2sigma ()\n
+\ref qlVasicek ()\n
+\ref qlVasicekA ()\n
+\ref qlVasicekB ()\n
+\ref qlVasicekLambda ()\n
+\ref qlVasicekSigma ()\n
+
+\section documentation Function Documentation
+\anchor qlFuturesConvexityBias \b qlFuturesConvexityBias
+\code
+
+double returnValue
+
+qlFuturesConvexityBias(
+        double FuturesPrice
+        double T1
+        double T2
+        double Sigma
+        double A
+        any Trigger)
+
+\endcode
+\par Description:
+
+Returns Futures convexity bias (ForwardRate = FuturesImpliedRate - ConvexityBias) calculated as in G. Kirikos, D. Novak, 'Convexity Conundrums', Risk Magazine, March 1997.
+
+\par Supported Platforms:
+
+Excel
+
+\param FuturesPrice Futures price (e.g. 94.56).
+\param T1 Maturity date of the futures contract in years(e.g. 5.0).
+\param T2 Maturity of the underlying Libor deposit in years (e.g. 5.25).
+\param Sigma Hull-White volatility (e.g. 0.015).
+\param A Hull-White mean reversion. Default value = 0.03.
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlHullWhite \b qlHullWhite
+\code
+
+string returnValue
+
+qlHullWhite(
+        string ObjectId
+        string YieldCurve
+        double A
+        double Sigma
+        bool Permanent
+        any Trigger
+        bool Overwrite)
+
+\endcode
+\par Description:
+
+Construct an object of class HullWhite and return its id
+
+\par Supported Platforms:
+
+C++, Calc, Excel
+
+\param ObjectId id of object to be created
+\param YieldCurve YieldTermStructure object ID.
+\param A a.
+\param Sigma volatility.
+\param Permanent object permanent/nonpermanent
+\param Trigger dependency tracking trigger
+\param Overwrite overwrite flag
+
+
+
+\anchor qlModelG2 \b qlModelG2
+\code
+
+string returnValue
+
+qlModelG2(
+        string ObjectId
+        string YieldCurve
+        double A
+        double Sigma
+        double B
+        double Eta
+        double Correlation
+        bool Permanent
+        any Trigger
+        bool Overwrite)
+
+\endcode
+\par Description:
+
+Construct an object of class G2 and return its id
+
+\par Supported Platforms:
+
+C++, Calc, Excel
+
+\param ObjectId id of object to be created
+\param YieldCurve YieldTermStructure object ID.
+\param A drift of x(t) dynamics with r(t)= x(t) + y(t). Default value = 0.1.
+\param Sigma volatility of x(t) dynamics with r(t)= x(t) + y(t). Default value = 0.01.
+\param B drift of y(t) dynamics with r(t)= x(t) + y(t). Default value = 0.1.
+\param Eta volatility of y(t) dynamics with r(t)= x(t) + y(t). Default value = 0.01.
+\param Correlation Correlation between x(t) and y(t) Default value = -0.75.
+\param Permanent object permanent/nonpermanent
+\param Trigger dependency tracking trigger
+\param Overwrite overwrite flag
+
+
+
+\anchor qlModelG2A \b qlModelG2A
+\code
+
+double returnValue
+
+qlModelG2A(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the drift of x(t) dynamics with r(t) = x(t) + y(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::G2 object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlModelG2B \b qlModelG2B
+\code
+
+double returnValue
+
+qlModelG2B(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the drift of y(t) dynamics with r(t) = x(t) + y(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::G2 object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlModelG2eta \b qlModelG2eta
+\code
+
+double returnValue
+
+qlModelG2eta(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the volatility of y(t) dynamics with r(t) = x(t) + y(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::G2 object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlModelG2rho \b qlModelG2rho
+\code
+
+double returnValue
+
+qlModelG2rho(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the correlation between x(t) and y(t) with r(t) = x(t) + y(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::G2 object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlModelG2sigma \b qlModelG2sigma
+\code
+
+double returnValue
+
+qlModelG2sigma(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the volatility of x(t) dynamics with r(t) = x(t) + y(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::G2 object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlVasicek \b qlVasicek
+\code
+
+string returnValue
+
+qlVasicek(
+        string ObjectId
+        double R0
+        double A
+        double B
+        double Sigma
+        double Lambda
+        bool Permanent
+        any Trigger
+        bool Overwrite)
+
+\endcode
+\par Description:
+
+Construct an object of class Vasicek and return its id
+
+\par Supported Platforms:
+
+C++, Calc, Excel
+
+\param ObjectId id of object to be created
+\param R0 initial value. Default value = 0.05.
+\param A mean reverting speed. Default value = 0.1.
+\param B short-rate limit value. Default value = 0.05.
+\param Sigma volatility. Default value = 0.01.
+\param Lambda risk premium. Default value = 0.0.
+\param Permanent object permanent/nonpermanent
+\param Trigger dependency tracking trigger
+\param Overwrite overwrite flag
+
+
+
+\anchor qlVasicekA \b qlVasicekA
+\code
+
+double returnValue
+
+qlVasicekA(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns mean reverting speed a, with dr(t) = a(b-r(t))dt + sigma dW(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::Vasicek object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlVasicekB \b qlVasicekB
+\code
+
+double returnValue
+
+qlVasicekB(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns short-rate limit value b, with dr(t) = a(b-r(t))dt + sigma dW(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::Vasicek object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlVasicekLambda \b qlVasicekLambda
+\code
+
+double returnValue
+
+qlVasicekLambda(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the risk premium.
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::Vasicek object
+\param Trigger dependency tracking trigger
+
+
+
+\anchor qlVasicekSigma \b qlVasicekSigma
+\code
+
+double returnValue
+
+qlVasicekSigma(
+        string ObjectId
+        any Trigger)
+
+\endcode
+\par Description:
+
+returns the volatility sigma, with dr(t) = a(b-r(t))dt + sigma dW(t).
+
+\par Supported Platforms:
+
+Calc, Excel
+
+\param ObjectId id of existing QuantLib::Vasicek object
+\param Trigger dependency tracking trigger
+
+
+
+
+
+*/
+
+
